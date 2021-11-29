@@ -1,27 +1,36 @@
-<table class="table table-success">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Username</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Reviewer</th>
-            <th>Admin</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <td>{{user.id}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.firstname}}</td>
-            <td>{{user.lastname}}</td>
-            <td>{{user.phone}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.isReviewer}}</td>
-            <td>{{user.isAdmin}}</td>
-        </tr>
-    </tbody>
-</table>
+<body>
+    <h4>User List</h4>
+    <p>
+        <a routerLink= "/users/create">Create New User</a>
+    </p>
+    <table class="table table-success">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Reviewer</th>
+                <th>Admin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.firstname}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.email}}</td>
+                <td>{{displayBoolean(user.isReviewer)}}</td>
+                <td>{{displayBoolean(user.isAdmin)}}</td>
+                <td>
+                    <a routerLink= "/users/details/{{user.id}}">Detail</a> | <a routerLink= "/users/edit/{{user.id}}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>

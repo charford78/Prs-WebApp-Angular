@@ -11,6 +11,10 @@ export class UserListComponent implements OnInit {
 
   users: User[] = [];
 
+  displayBoolean (aBoolean: boolean): string {
+    return aBoolean ? "Yes" : "No";
+  }
+  
   constructor(
     private usrsvc: UserService
   ) { }

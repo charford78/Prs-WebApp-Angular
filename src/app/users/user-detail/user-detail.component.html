@@ -1,1 +1,50 @@
-<p>user-detail works!</p>
+<h4>User Detail</h4>
+<p>
+    <a routerLink= "/users/list">Back to List</a>
+</p>
+<br>
+<form *ngIf="user">
+    <div>
+        <label>Id</label>
+        <input id="xid" type="text" size=10 [(ngModel)]="user.id" name="userId" disabled>
+    </div>
+    <div>
+        <label>Username</label>
+        <input id="xusername" type="text" size=30 [(ngModel)]="user.username" name="username" disabled>
+    </div>
+    <div>
+        <label>Password</label>
+        <input id="xpwd" type="password" size=30 [(ngModel)]="user.password" name="password" disabled>
+    </div>
+    <div>
+        <label>First Name</label>
+        <input id="xfname" type="text" size=30 [(ngModel)]="user.firstname" name="firstname" disabled>
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input id="xlname" type="text" size=30 [(ngModel)]="user.lastname" name="lastname" disabled>
+    </div>
+    <div>
+        <label>Phone</label>
+        <input id="xphone" type="text" size=15 [(ngModel)]="user.phone" name="phone" disabled>
+    </div>
+    <div>
+        <label>Email</label>
+        <input id="xemail" type="text" size=50 [(ngModel)]="user.email" name="email" disabled>
+    </div>
+    <div>
+        <label>Reviewer</label>
+        <input id="xreviewer" type="checkbox" [(ngModel)]="user.isReviewer" name="reviewer" disabled>
+    </div>
+    <div>
+        <label>Admin</label>
+        <input id="xadmin" type="checkbox" [(ngModel)]="user.isAdmin" name="admin" disabled>
+    </div>
+    <div>
+        <a routerLink= "/users/edit/{{user.id}}">
+            <button type="button" class="btn btn-warning">Edit</button>
+        </a>
+        <span> | </span>
+        <button (click)= "delete(user.id)" type="button" class="btn btn-danger">Delete</button>
+    </div>
+</form>

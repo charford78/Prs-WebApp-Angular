@@ -1,1 +1,17 @@
-<p>user-login works!</p>
+<form *ngIf="user">
+    <div>
+        <h3>PRS Login</h3>
+    </div>
+    <div>
+        <label>Username</label>
+        <input type="text" [(ngModel)]="user.username" name=username>
+    </div>
+    <br>
+    <div>
+        <label>Password</label>
+        <input type="password" [(ngModel)]="user.password" name=password>
+    </div>
+    <br>
+    <br>
+    <button (click)="logon(user.username, user.password)" type="button" class="btn btn-primary">Login</button>
+</form>
