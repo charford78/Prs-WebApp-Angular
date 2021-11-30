@@ -13,6 +13,7 @@ export class UserLoginComponent implements OnInit {
 
   username: string= "";
   password: string= "";
+  warning: string= "";
   
   constructor(
     private usrsvc: UserService,
@@ -25,10 +26,12 @@ export class UserLoginComponent implements OnInit {
       next: res => {
         console.debug("Logged in User:", res);
         this.syssvc.loggedInUser = res;
+        this.warning = "";
         this.router.navigateByUrl("/requests/list");
       },
       error: err => {
         console.error(err);
+        this.warning = "Invalid Username/Password"
       }
     });
   }
