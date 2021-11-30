@@ -18,6 +18,7 @@ export class VendorListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.syssvc.checkLogin();
     
     this.vensvc.list().subscribe({
       next: res => {
