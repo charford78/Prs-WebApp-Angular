@@ -9,7 +9,10 @@ import { SystemService } from '../system.service';
 })
 export class MenuComponent implements OnInit {
 
-  username: any = this.syssvc.loggedInUser != null ? this.syssvc.loggedInUser.username : "";
+  get username(){
+    return this.syssvc.loggedInUser?.username;
+  } 
+    
 
   menus: Menu[] = [
     new Menu("PRS", "/home"),
