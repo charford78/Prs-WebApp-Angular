@@ -1,1 +1,46 @@
-<p>vendor-create works!</p>
+<h4>Vendor Create</h4>
+<p>
+    <a routerLink= "/vendors/list">Back to List</a>
+</p>
+<br>
+<form>
+    <div>
+        <label>Id</label>
+        <input id="xid" type="number" size=10 [(ngModel)]="vendor.id" name="vendorId" value=0 disabled>
+    </div>
+    <div>
+        <label>Code</label>
+        <input id="xcode" type="text" size=10 [(ngModel)]="vendor.code" name="code">
+    </div>
+    <div>
+        <label>Name</label>
+        <input id="xname" type="text" size=30 [(ngModel)]="vendor.name" name="name">
+    </div>
+    <div>
+        <label>Address</label>
+        <input id="xaddress" type="text" size=50 [(ngModel)]="vendor.address" name="address">
+    </div>
+    <div>
+        <label>City</label>
+        <input id="xcity" type="text" size=30 [(ngModel)]="vendor.city" name="city">
+    </div>
+    <div>
+        <label>State</label>
+        <input id="xstate" type="text" size=5 [(ngModel)]="vendor.state" name="state">
+    </div>
+    <div>
+        <label>Zip</label>
+        <input id="xzip" type="text" size=10 [(ngModel)]="vendor.zip" name="zip">
+    </div>
+    <div>
+        <label>Phone</label>
+        <input id="xphone" type="text" [(ngModel)]="vendor.phone" name="phone">
+    </div>
+    <div>
+        <label>Email</label>
+        <input id="xemail" type="text" [(ngModel)]="vendor.email" name="email">
+    </div>
+    <div>
+        <button (click)= "save()" type="button" class="btn btn-primary">Save</button>
+    </div>
+</form>
