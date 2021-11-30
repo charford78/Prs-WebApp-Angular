@@ -9,7 +9,7 @@ import { SystemService } from '../system.service';
 })
 export class MenuComponent implements OnInit {
 
-  username: string = "";
+  username: any = null;
 
   menus: Menu[] = [
     new Menu("PRS", "/home"),
@@ -27,6 +27,9 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this.syssvc.loggedInUser != null){
+      this.username = this.syssvc.loggedInUser.username;
+    }
   }
 
 }
