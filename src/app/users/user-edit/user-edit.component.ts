@@ -32,7 +32,7 @@ export class UserEditComponent implements OnInit {
     if(this.warning === ""){
       this.usrsvc.change(this.user, this.userId).subscribe({
         next: res => {
-          console.debug("User:", res);
+          console.debug("User edited:", res);
           this.router.navigateByUrl("/users/list");
         },
         error: err => {
