@@ -32,6 +32,7 @@ export class UserLoginComponent implements OnInit {
       error: err => {
         console.error(err);
         this.warning = "Invalid Username/Password"
+        this.syssvc.loggedInUser = null;
       }
     });
   }
