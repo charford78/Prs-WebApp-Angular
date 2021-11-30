@@ -22,8 +22,36 @@ export class VendorDetailComponent implements OnInit {
     private syssvc: SystemService
   ) { }
 
+  delete(vid: number): Vendor {
+    this.vendorId = vid;
+
+    this.vensvc.remove(this.vendorId).subscribe({
+      next: res => {
+        console.debug("Vendor removed:", res);
+        this.vendor = res;
+        this.router.navigateByUrl("/vendors/list");
+      },
+      error: err => {
+        console.error(err);
+      }
+    });
+    return this.vendor;
+  }
+
   ngOnInit(): void {
-    
+    this.syssvc.checkLogin();
+
+    this.vendorId = this.route.snapshot.params["id"];
+
+    this.vensvc.getById(this.vendorId).subscribe({
+      next: res => {
+        console.debug("Vendor:", res);
+        this.vendor = res;
+      },
+      error: err => {
+        console.error(err);
+      }
+    });
   }
 
 }
