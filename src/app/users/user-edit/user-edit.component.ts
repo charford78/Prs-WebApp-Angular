@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/misc/system.service';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -19,7 +20,8 @@ export class UserEditComponent implements OnInit {
   constructor(
     private usrsvc: UserService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private syssvc: SystemService
   ) { }
 
   checkPswd(): void {    
@@ -42,6 +44,8 @@ export class UserEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.syssvc.checkLogin();
+    
     this.userId = this.route.snapshot.params["id"];
 
     this.usrsvc.getById(this.userId).subscribe({
