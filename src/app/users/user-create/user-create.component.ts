@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
 export class UserCreateComponent implements OnInit {
 
   user: User = new User();
+  password2: string = "";
 
   constructor(
     private usrsvc: UserService,
