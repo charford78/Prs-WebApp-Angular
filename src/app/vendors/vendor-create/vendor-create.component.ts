@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SystemService } from 'src/app/misc/system.service';
+import { Vendor } from '../vendor.class';
+import { VendorService } from '../vendor.service';
 
 @Component({
   selector: 'app-vendor-create',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorCreateComponent implements OnInit {
 
-  constructor() { }
+  vendor: Vendor = new Vendor();
+  
+  constructor(
+    private vensvc: VendorService,
+    private router: Router,
+    private syssvc: SystemService
+  ) { }
+
+  save(): Vendor {
+      this.vensvc.create(this.vendor).subscribe({
+        next: res => {
+          console.debug("New Vendor created:", res);
+          this.vendor = res;
+          this.router.navigateByUrl("/vendors/list");
+        },
+        error: err => {
+          console.error(err);
+        }
+      });    
+    return this.vendor;
+  }
+
 
   ngOnInit(): void {
+    this.syssvc.checkLogin();
   }
 
 }
