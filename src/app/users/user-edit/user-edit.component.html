@@ -16,7 +16,8 @@
         <label>Password</label>
         <input id="xpwd" type="password" size=30 [(ngModel)]="user.password" name="password">
         <label>Re-enter password</label>
-        <input id="xpwd2" type="password" size=30 [(ngModel)]="password2" name="password2">
+        <input id="xpwd2" type="password" size=30 [(ngModel)]="password2" name="password2" (blur)="checkPswd()">
+        <span style= "color: red">  {{warning}}  </span>
     </div>
     <div>
         <label>First Name</label>

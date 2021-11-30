@@ -12,24 +12,30 @@ export class UserCreateComponent implements OnInit {
 
   user: User = new User();
   password2: string = "";
+  warning: string = "";
 
   constructor(
     private usrsvc: UserService,
     private router: Router
   ) { }
 
+  checkPswd(): void {    
+    this.warning = (this.user.password != this.password2)? "Passwords do not match! Try again." : "";    
+  }
+  
   save(): User {
-    
-    this.usrsvc.create(this.user).subscribe({
-      next: res => {
-        console.debug("User:", res);
-        this.user = res;
-        this.router.navigateByUrl("/users/list");
-      },
-      error: err => {
-        console.error(err);
-      }
-    });
+    if(this.warning === ""){
+      this.usrsvc.create(this.user).subscribe({
+        next: res => {
+          console.debug("User:", res);
+          this.user = res;
+          this.router.navigateByUrl("/users/list");
+        },
+        error: err => {
+          console.error(err);
+        }
+      });
+    }
     return this.user;
   }
 

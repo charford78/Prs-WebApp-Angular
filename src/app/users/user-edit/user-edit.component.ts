@@ -12,6 +12,7 @@ export class UserEditComponent implements OnInit {
 
   user!: User;
   password2: string = "";
+  warning: string = "";
   
   userId: number = 0;
 
@@ -21,17 +22,22 @@ export class UserEditComponent implements OnInit {
     private router: Router
   ) { }
 
+  checkPswd(): void {    
+    this.warning = (this.user.password != this.password2)? "Passwords do not match! Try again." : "";    
+  }
+
   save(): User {
-    
-    this.usrsvc.change(this.user, this.userId).subscribe({
-      next: res => {
-        console.debug("User:", res);
-        this.router.navigateByUrl("/users/list");
-      },
-      error: err => {
-        console.error(err);
-      }
-    });
+    if(this.warning === ""){
+      this.usrsvc.change(this.user, this.userId).subscribe({
+        next: res => {
+          console.debug("User:", res);
+          this.router.navigateByUrl("/users/list");
+        },
+        error: err => {
+          console.error(err);
+        }
+      });
+    }
     return this.user;
   }
 
