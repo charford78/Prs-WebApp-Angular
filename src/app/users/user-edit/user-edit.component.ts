@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
 export class UserEditComponent implements OnInit {
 
   user!: User;
+  password2: string = "";
   
   userId: number = 0;
 
