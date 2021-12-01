@@ -33,7 +33,6 @@ export class VendorCreateComponent implements OnInit {
     return this.vendor;
   }
 
-
   ngOnInit(): void {
     this.syssvc.checkLogin();
   }
