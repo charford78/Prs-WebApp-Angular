@@ -8,7 +8,7 @@ export class Product {
     unit: string = "";
     photopath: string = "";
     vendorId: number = 0;
-    vendor: Vendor = new Vendor();
+    vendor!: Vendor;
 
     constructor () {}
 
