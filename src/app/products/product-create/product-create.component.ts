@@ -26,6 +26,7 @@ export class ProductCreateComponent implements OnInit {
   ) { }
 
   save(): Product {
+    this.product.vendorId = +this.product.vendorId;
       this.prdsvc.create(this.product).subscribe({
         next: res => {
           console.debug("New Product created:", res);
