@@ -1,1 +1,41 @@
-<p>product-edit works!</p>
+<h4>Product Edit</h4>
+<p>
+    <a routerLink= "/products/list">Back to List</a>
+</p>
+<br>
+<form *ngIf="product">
+    <div>
+        <label>Id</label>
+        <input id="xid" type="number" size=10 [(ngModel)]="product.id" name="productId" disabled>
+    </div>
+    <div>
+        <label>PartNbr</label>
+        <input id="xpartnbr" type="text" size=20 [(ngModel)]="product.partNbr" name="partNbr">
+    </div>
+    <div>
+        <label>Name</label>
+        <input id="xname" type="text" size=30 [(ngModel)]="product.name" name="name">
+    </div>
+    <div>
+        <label>Price</label>
+        <input id="xprice" type="number" size=10 [(ngModel)]="product.price" name="price">
+    </div>
+    <div>
+        <label>Unit</label>
+        <input id="xunit" type="text" size=15 [(ngModel)]="product.unit" name="unit">
+    </div>
+    <div>
+        <label>Photopath</label>
+        <input id="xphotopath" type="text" size=50 [(ngModel)]="product.photopath" name="photopath">
+    </div>
+    <div>
+        <label for="xvendors">Choose a Vendor:</label>
+        <select id="xvendors" name="vendors" [(ngModel)]="product.vendorId">
+            <option *ngFor="let vendor of vendors" value={{vendor.id}}>{{vendor.name}}</option>
+        </select>
+    </div>
+    <div>
+        <button (click)= "save()" type="button" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
