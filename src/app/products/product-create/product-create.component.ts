@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SystemService } from 'src/app/misc/system.service';
+import { VendorListComponent } from 'src/app/vendors/vendor-list/vendor-list.component';
+import { Vendor } from 'src/app/vendors/vendor.class';
+import { VendorService } from 'src/app/vendors/vendor.service';
+import { Product } from '../product.class';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-create',
@@ -7,9 +14,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductCreateComponent implements OnInit {
 
-  constructor() { }
+  product: Product = new Product();
+
+  vendors: Vendor[] = [];
+
+  constructor(
+    private prdsvc: ProductService,
+    private router: Router,
+    private syssvc: SystemService,
+    private vensvc: VendorService
+  ) { }
+
+  save(): Product {
+      this.prdsvc.create(this.product).subscribe({
+        next: res => {
+          console.debug("New Product created:", res);
+          this.product = res;
+          this.router.navigateByUrl("/products/list");
+        },
+        error: err => {
+          console.error(err);
+        }
+      });    
+    return this.product;
+  }
 
   ngOnInit(): void {
+    this.syssvc.checkLogin();
+
+    this.vensvc.list().subscribe({
+      next: res => {
+        this.vendors = res
+      },
+      error: err => {
+        console.error(err);
+      }
+    });
   }
 
 }
