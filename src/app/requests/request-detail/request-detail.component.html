@@ -1,1 +1,46 @@
-<p>request-detail works!</p>
+<h4>Request Detail</h4>
+<p>
+    <a routerLink= "/requests/list">Back to List</a>
+</p>
+<br>
+<form *ngIf="request">
+    <div>
+        <label>Id</label>
+        <input id="xid" type="number" [(ngModel)]="request.id" name="requestId" disabled>
+    </div>
+    <div>
+        <label>Description</label>
+        <input id="xdesc" type="text" size=70 [(ngModel)]="request.description" name="description" disabled>
+    </div>
+    <div>
+        <label>Justification</label>
+        <input id="xjust" type="text" size=100 [(ngModel)]="request.justification" name="justification" disabled>
+    </div>
+    <div>
+        <label>Rejection Reason</label>
+        <input id="xreject" type="text" size=100 [(ngModel)]="request.rejectionReason" name="rejection" disabled>
+    </div>
+    <div>
+        <label>Delivery Mode</label>
+        <input id="xdeliv" type="text" size=20 [(ngModel)]="request.deliveryMode" name="delivery" disabled>
+    </div>
+    <div>
+        <label>Status</label>
+        <input id="xstatus" type="text" size=10 [(ngModel)]="request.status" name="status" disabled>
+    </div>
+    <div>
+        <label>Total</label>
+        <input id="xtotal" type="number" size=15 [(ngModel)]="request.total" name="total" disabled>
+    </div>
+    <div>
+        <label>User</label>
+        <input id="xuser" type="text" size=20 [(ngModel)]="request.user.username" name="user" disabled>
+    </div>
+    <div>
+        <a routerLink= "/requests/edit/{{request.id}}">
+            <button type="button" class="btn btn-warning">Edit</button>
+        </a>
+        <span> | </span>
+        <button (click)= "delete(request.id)" type="button" class="btn btn-danger">Delete</button>
+    </div>
+</form>
