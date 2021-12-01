@@ -1,1 +1,29 @@
-<p>request-lines works!</p>
+<body>
+    <h4>Request Lines</h4>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>User</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{request.id}}</td>
+                <td>{{request.description}}</td>
+                <td>{{request.status}}</td>
+                <td>{{request.total | currency}}</td>
+                <td>{{request.user.username}}</td>
+                <td>
+                    <a routerLink= "/requests/review/{{request.id}}">Review</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+
