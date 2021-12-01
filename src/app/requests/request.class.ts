@@ -6,11 +6,11 @@ export class Request {
     description: string = "";
     justification: string = "";
     rejectionReason: string = "";
-    deliveryMode: string = "";
-    status: string = "";
+    deliveryMode: string = "Pickup";
+    status: string = "NEW";
     total: number = 0;
     userId: number = 0;
-    user: User = new User();
+    user!: User;
     requestLines: Requestlines[] = [];
 
     constructor () {}
