@@ -9,7 +9,6 @@
                 <th>Id</th>
                 <th>Description</th>
                 <th>Justification</th>
-                <th>Rejection Reason</th>
                 <th>Delivery Mode</th>
                 <th>Status</th>
                 <th>Total</th>
@@ -22,13 +21,12 @@
                 <td>{{request.id}}</td>
                 <td>{{request.description}}</td>
                 <td>{{request.justification}}</td>
-                <td>{{request.rejectionReason}}</td>
                 <td>{{request.deliveryMode}}</td>
                 <td>{{request.status}}</td>
                 <td>{{request.total | currency}}</td>
                 <td>{{request.user.username}}</td>
                 <td>
-                    <a routerLink= "/requests/details/{{request.id}}">Detail</a> | <a routerLink= "/requests/edit/{{request.id}}">Edit</a>
+                    <a routerLink= "/requests/details/{{request.id}}">Detail</a> | <a routerLink= "/requests/edit/{{request.id}}">Edit</a> | <a routerLink="/requests/lines/{{request.id}}">Lines</a>
                 </td>
             </tr>
         </tbody>
