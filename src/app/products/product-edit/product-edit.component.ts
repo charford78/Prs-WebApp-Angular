@@ -27,7 +27,7 @@ export class ProductEditComponent implements OnInit {
     private vensvc: VendorService
   ) { }
 
-  save(): Product {
+  save(): void {
     this.product.vendorId = +this.product.vendorId;
     this.prdsvc.change(this.product, this.productId).subscribe({
       next: res => {
@@ -38,7 +38,6 @@ export class ProductEditComponent implements OnInit {
         console.error(err);
       }
     });
-  return this.product;
 }
 
 
