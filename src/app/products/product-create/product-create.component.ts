@@ -45,7 +45,7 @@ export class ProductCreateComponent implements OnInit {
 
     this.vensvc.list().subscribe({
       next: res => {
-        this.vendors = res
+        this.vendors = res;
       },
       error: err => {
         console.error(err);
