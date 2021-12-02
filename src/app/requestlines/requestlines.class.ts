@@ -6,7 +6,7 @@ export class Requestlines{
     requestId: number = 0;
     productId: number = 0;
     quantity: number = 0;
-    product: Product = new Product();
+    product!: Product;
     request: Request = new Request();
 
     constructor () {}
