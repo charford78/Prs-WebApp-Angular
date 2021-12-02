@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SystemService } from 'src/app/misc/system.service';
+import { Requestlines } from 'src/app/requestlines/requestlines.class';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -13,6 +14,7 @@ export class RequestLinesComponent implements OnInit {
 
   request: Request = new Request();
   requestId: number = 0;
+  requestlines: Requestlines[] = [];
 
   constructor(
     private reqsvc: RequestService,
@@ -29,11 +31,13 @@ export class RequestLinesComponent implements OnInit {
       next: res => {
         console.debug("Request:", res);
         this.request = res;
+        this.requestlines = this.request.requestLines;
       },
       error: err => {
         console.error(err);
       }
     });
+
   }
 
 }
