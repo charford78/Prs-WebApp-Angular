@@ -7,6 +7,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { RequestlinesCreateComponent } from './requestlines/requestlines-create/requestlines-create.component';
+import { RequestlinesEditComponent } from './requestlines/requestlines-edit/requestlines-edit.component';
 import { RequestCreateComponent } from './requests/request-create/request-create.component';
 import { RequestDetailComponent } from './requests/request-detail/request-detail.component';
 import { RequestEditComponent } from './requests/request-edit/request-edit.component';
@@ -49,7 +50,7 @@ const routes: Routes = [
   { path: "requests/reviews", component: RequestReviewslistComponent},
   { path: "requests/review/:id", component: RequestReviewComponent},
   { path: "requestlines/create/:id", component: RequestlinesCreateComponent},
-  { path: "requestlines/edit/:id", component: RequestReviewslistComponent},
+  { path: "requestlines/edit/:id", component: RequestlinesEditComponent},
   
 
   {path: "**", component: HomeComponent}
