@@ -24,7 +24,7 @@
                 <td>{{request.total | currency}}</td>
                 <td>{{request.user.username}}</td>
                 <td>
-                    <a routerLink= "/requests/review/{{request.id}}">Review</a>
+                    <button (click)= "review(request)" type="button" class="btn btn-link">Review</button>
                 </td>
             </tr>
         </tbody>
@@ -49,10 +49,12 @@
                 <td>{{rl.id}}</td>
                 <td>{{rl.product.name}}</td>
                 <td>{{rl.quantity}}</td>
-                <td>{{rl.product.price}}</td>
-                <td>{{rl.quantity * rl.product.price}}</td>
+                <td>{{rl.product.price | currency}}</td>
+                <td>{{rl.quantity * rl.product.price | currency}}</td>
                 <td>
-                    <a routerLink="/requestlines/edit/{{rl.id}}">Edit</a> | <a routerLink="/requests/lines/{{request.id}}">Delete</a>
+                    <button type="button" class= "btn btn-link">
+                        <a routerLink="/requestlines/edit/{{rl.id}}">Edit</a>
+                    </button> | <button (click)= "delete(rl.id)" type="button" class="btn btn-link">Delete</button>
                 </td>
             </tr>
         </tbody>

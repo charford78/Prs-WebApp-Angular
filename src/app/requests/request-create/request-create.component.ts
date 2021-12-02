@@ -22,7 +22,7 @@ export class RequestCreateComponent implements OnInit {
     private syssvc: SystemService,
   ) { }
 
-  save(): Request {
+  save(): void {
       this.request.userId = this.user.id;
 
       this.reqsvc.create(this.request).subscribe({
@@ -35,7 +35,6 @@ export class RequestCreateComponent implements OnInit {
           console.error(err);
         }
       });    
-    return this.request;
   }
 
 
