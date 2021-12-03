@@ -25,12 +25,11 @@ export class UserCreateComponent implements OnInit {
     this.warning = (this.user.password != this.password2)? "Passwords do not match! Try again." : "";    
   }
   
-  save(): User {
+  save(): void {
     if(this.warning === ""){
       this.usrsvc.create(this.user).subscribe({
         next: res => {
           console.debug("User:", res);
-          this.user = res;
           this.router.navigateByUrl("/users/list");
         },
         error: err => {
@@ -38,7 +37,6 @@ export class UserCreateComponent implements OnInit {
         }
       });
     }
-    return this.user;
   }
 
   ngOnInit(): void {
