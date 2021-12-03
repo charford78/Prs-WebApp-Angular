@@ -15,6 +15,10 @@ export class RequestlinesService {
     private httpsvc: HttpClient
   ) { }
 
+  getById(id: number): Observable<Requestlines> {
+    return this.httpsvc.get(`${this.baseurl}/${id}`) as Observable<Requestlines>;
+  }
+
   create(requestline: Requestlines): Observable<Requestlines> {
     return this.httpsvc.post(`${this.baseurl}`, requestline) as Observable<Requestlines>;
   }
