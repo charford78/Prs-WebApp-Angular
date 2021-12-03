@@ -14,7 +14,7 @@ import { RequestlinesService } from '../requestlines.service';
 export class RequestlinesCreateComponent implements OnInit {
 
   reqline: Requestlines = new Requestlines();
-  products: Product[] = []
+  products: Product[] = [];
 
   constructor(
     private rqlsvc: RequestlinesService,
@@ -28,7 +28,6 @@ export class RequestlinesCreateComponent implements OnInit {
     this.rqlsvc.create(this.reqline).subscribe({
       next: res => {
         console.debug("New Requestline created:", res);
-        this.reqline = res;
         this.router.navigateByUrl(`/requests/lines/${this.reqline.requestId}`);
       },
       error: err => {
