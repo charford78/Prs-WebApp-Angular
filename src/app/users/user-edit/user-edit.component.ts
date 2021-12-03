@@ -28,7 +28,7 @@ export class UserEditComponent implements OnInit {
     this.warning = (this.user.password != this.password2)? "Passwords do not match! Try again." : "";    
   }
 
-  save(): User {
+  save(): void {
     if(this.warning === ""){
       this.usrsvc.change(this.user, this.userId).subscribe({
         next: res => {
@@ -40,7 +40,6 @@ export class UserEditComponent implements OnInit {
         }
       });
     }
-    return this.user;
   }
 
   ngOnInit(): void {

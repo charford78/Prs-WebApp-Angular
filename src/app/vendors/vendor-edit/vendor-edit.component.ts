@@ -22,7 +22,7 @@ export class VendorEditComponent implements OnInit {
     private syssvc: SystemService
   ) { }
 
-  save(): Vendor {
+  save(): void {
       this.vensvc.change(this.vendor, this.vendorId).subscribe({
         next: res => {
           console.debug("Vendor edited:", res);
@@ -32,7 +32,6 @@ export class VendorEditComponent implements OnInit {
           console.error(err);
         }
       });
-    return this.vendor;
   }
 
 

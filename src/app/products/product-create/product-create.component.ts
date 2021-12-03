@@ -25,19 +25,17 @@ export class ProductCreateComponent implements OnInit {
     private vensvc: VendorService
   ) { }
 
-  save(): Product {
+  save(): void {
     this.product.vendorId = +this.product.vendorId;
       this.prdsvc.create(this.product).subscribe({
         next: res => {
           console.debug("New Product created:", res);
-          this.product = res;
           this.router.navigateByUrl("/products/list");
         },
         error: err => {
           console.error(err);
         }
       });    
-    return this.product;
   }
 
   ngOnInit(): void {

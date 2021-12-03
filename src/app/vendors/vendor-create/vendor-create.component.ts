@@ -19,18 +19,16 @@ export class VendorCreateComponent implements OnInit {
     private syssvc: SystemService
   ) { }
 
-  save(): Vendor {
+  save(): void {
       this.vensvc.create(this.vendor).subscribe({
         next: res => {
           console.debug("New Vendor created:", res);
-          this.vendor = res;
           this.router.navigateByUrl("/vendors/list");
         },
         error: err => {
           console.error(err);
         }
       });    
-    return this.vendor;
   }
 
   ngOnInit(): void {
