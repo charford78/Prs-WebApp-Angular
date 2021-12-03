@@ -14,7 +14,7 @@ export class RequestCreateComponent implements OnInit {
 
   request: Request = new Request();
 
-  user: User = new User();
+  user!: User;
 
   constructor(
     private reqsvc: RequestService,
