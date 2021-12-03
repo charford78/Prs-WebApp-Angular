@@ -13,7 +13,7 @@ import { RequestlinesService } from '../requestlines.service';
 })
 export class RequestlinesEditComponent implements OnInit {
 
-  reqline!: Requestlines;
+  reqline: Requestlines = new Requestlines();
   reqlineId: number = 0;
   products: Product[] = [];
 
