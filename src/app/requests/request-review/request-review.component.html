@@ -1,1 +1,67 @@
-<p>request-review works!</p>
+<body *ngIf="request">
+    <h4>Request Review</h4>
+    <a routerLink="/requests/reviews">Back to Review List</a>
+    <br>
+    <br>
+    <h5>Request</h5>
+    <br>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Rejection Reason</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>User</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="request.user">
+            <tr>
+                <td>{{request.id}}</td>
+                <td>{{request.description}}</td>
+                <td style= "color: red">{{request.rejectionReason}}</td>
+                <td>{{request.status}}</td>
+                <td>{{request.total | currency}}</td>
+                <td>{{request.user.username}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <h5>Requestlines</h5>
+    <br>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rl of requestlines">
+                <td>{{rl.id}}</td>
+                <td>{{rl.product.name}}</td>
+                <td>{{rl.quantity}}</td>
+                <td>{{rl.product.price | currency}}</td>
+                <td>{{rl.quantity * rl.product.price | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div> 
+        <button (click)="reject()" type="button" class= "btn btn-danger">Reject</button>
+            <span *ngIf="rejected === true">  |  
+                <input id="xreject" type="text" size=30 [(ngModel)]="request.rejectionReason" name="rejection">  |  
+                <button (click)="verifyReject(request)" type="button" class="btn btn-danger">Verify Reject</button>
+            </span>       
+        <span>  |  </span>
+        <button (click)= "approve(request)" type="button" class="btn btn-success">Approve</button>
+    </div>
+    <div>
+        <h6 style= "color: red">  {{warning}}  </h6>
+    </div>
+</body>
+
+
