@@ -25,6 +25,7 @@ export class RequestlinesCreateComponent implements OnInit {
   ) { }
 
   save(): void {
+    this.reqline.productId = +this.reqline.productId;
     this.rqlsvc.create(this.reqline).subscribe({
       next: res => {
         console.debug("New Requestline created:", res);
