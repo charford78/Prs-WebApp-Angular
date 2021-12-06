@@ -1,20 +1,26 @@
 nav {
+    display: inline-block;
     background-color: navy;
+    width: 80%;
+    padding: 5px;
 }
 
 ul {
-    display: inline-block;
     margin: 0;
     padding: 0;
 }
 
 li {
-    display: inline-block
+    display: inline-block;
 }
 
 #loggedInUser {
+    width: 20%;
+    display: inline-block;
+    text-align: right;
     color: silver;
-    padding: 0, 5px, 0, 100px;
+    background-color: navy;
+    padding: 5px 10px 5px 5px;
 }
 
 a {
