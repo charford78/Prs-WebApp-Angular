@@ -1,0 +1,19 @@
+form {
+    text-align: center;
+    border: 5px solid navy;
+    width: 40%;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+input {
+    border-radius: 8px;
+    border: 1px solid black;
+    margin: 0.5em;
+}
+
+.labels {
+    font-size: 14pt;
+    font-weight: bold;
+    color: navy;
+}
