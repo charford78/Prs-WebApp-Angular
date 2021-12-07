@@ -17,5 +17,10 @@ export class SystemService {
       this.router.navigateByUrl("/users/login")
     }
   }
+  checkIsAdmin(): void {
+    if(this.loggedInUser.isAdmin === false) {
+      this.router.navigateByUrl("/users/login")
+    }
+  }
 
 }
