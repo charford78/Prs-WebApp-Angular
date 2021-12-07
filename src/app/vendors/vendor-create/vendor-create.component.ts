@@ -33,6 +33,6 @@ export class VendorCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.syssvc.checkLogin();
+    this.syssvc.checkIsAdmin();
   }
-
 }
