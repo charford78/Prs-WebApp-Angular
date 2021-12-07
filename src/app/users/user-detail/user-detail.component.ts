@@ -22,20 +22,22 @@ export class UserDetailComponent implements OnInit {
     private syssvc: SystemService
   ) { }
 
-  delete(uid: number): User {
-    this.userId = uid;
+  delete(uid: number): void {
+    this.syssvc.checkIsAdmin();
 
-    this.usrsvc.remove(this.userId).subscribe({
-      next: res => {
-        console.debug("User:", res);
-        this.user = res;
-        this.router.navigateByUrl("/users/list");
-      },
-      error: err => {
-        console.error(err);
-      }
-    });
-    return this.user;
+    if(this.syssvc.loggedInUser.isAdmin === true){
+      this.userId = uid;
+      this.usrsvc.remove(this.userId).subscribe({
+        next: res => {
+          console.debug("User:", res);
+          this.user = res;
+          this.router.navigateByUrl("/users/list");
+        },
+        error: err => {
+          console.error(err);
+        }
+      });
+    }
   }
 
   ngOnInit(): void {

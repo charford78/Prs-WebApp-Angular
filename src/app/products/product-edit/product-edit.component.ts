@@ -43,6 +43,7 @@ export class ProductEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.syssvc.checkLogin();
+    this.syssvc.checkIsAdmin();
 
     this.productId = this.route.snapshot.params["id"];
 

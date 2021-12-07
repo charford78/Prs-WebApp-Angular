@@ -11,8 +11,8 @@ import { UserService } from '../user.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  username: string= "cford";
-  password: string= "blah78";
+  username: string= "asandler";
+  password: string= "flamingpoo!";
   warning: string= "";
   
   constructor(

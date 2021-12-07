@@ -37,6 +37,7 @@ export class VendorEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.syssvc.checkLogin();
+    this.syssvc.checkIsAdmin();
 
     this.vendorId = this.route.snapshot.params["id"];
 
