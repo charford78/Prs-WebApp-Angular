@@ -23,20 +23,22 @@ export class ProductDetailComponent implements OnInit {
     private syssvc: SystemService
   ) { }
 
-  delete(pid: number): Product {
-    this.productId = pid;
+  delete(pid: number): void {
+    this.syssvc.checkIsAdmin();
 
-    this.prdsvc.remove(this.productId).subscribe({
-      next: res => {
-        console.debug("Product removed:", res);
-        this.product = res;
-        this.router.navigateByUrl("/products/list");
-      },
-      error: err => {
-        console.error(err);
-      }
-    });
-    return this.product;
+    if(this.syssvc.loggedInUser.isAdmin === true){
+      this.productId = pid;
+      this.prdsvc.remove(this.productId).subscribe({
+        next: res => {
+          console.debug("Product removed:", res);
+          this.product = res;
+          this.router.navigateByUrl("/products/list");
+        },
+        error: err => {
+          console.error(err);
+        }
+      });
+    }
   }
 
 
