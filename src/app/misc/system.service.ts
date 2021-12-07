@@ -14,12 +14,13 @@ export class SystemService {
 
   checkLogin(): void {
     if(this.loggedInUser === null) {
-      this.router.navigateByUrl("/users/login")
+      this.router.navigateByUrl("/users/login");
     }
   }
   checkIsAdmin(): void {
     if(this.loggedInUser.isAdmin === false) {
-      this.router.navigateByUrl("/users/login")
+      alert("Admin-level authorization required to view this page. Returning to login.");
+      this.router.navigateByUrl("/users/login");
     }
   }
 
