@@ -1,0 +1,14 @@
+main {
+    width: 50%
+}
+
+form {
+    padding: 0 0 5px 0;
+}
+
+.headers {
+    font-weight: 500;
+    background: navy;
+    color: gold;
+    border-radius: 5px;
+}
