@@ -1,49 +1,77 @@
 <h4>User Create</h4>
-<p>
+<p style="font-weight: 500">
     <a routerLink= "/users/list">Back to List</a>
 </p>
 <br>
-<form>
-    <div>
-        <label>Id</label>
-        <input id="xid" type="number" size=10 [(ngModel)]="user.id" name="userId" value=0 disabled>
-    </div>
-    <div>
-        <label>Username</label>
-        <input id="xusername" type="text" size=30 [(ngModel)]="user.username" name="username">
-    </div>
-    <div>
-        <label>Password</label>
-        <input id="xpwd" type="password" size=30 [(ngModel)]="user.password" name="password">
-        <label>Re-enter password</label>
-        <input id="xpwd2" type="password" size=30 [(ngModel)]="password2" name="password2" (blur)="checkPswd()">
-        <span style= "color: red">  {{warning}}  </span>
-    </div>
-    <div>
-        <label>First Name</label>
-        <input id="xfname" type="text" size=30 [(ngModel)]="user.firstname" name="firstname">
-    </div>
-    <div>
-        <label>Last Name</label>
-        <input id="xlname" type="text" size=30 [(ngModel)]="user.lastname" name="lastname">
-    </div>
-    <div>
-        <label>Phone</label>
-        <input id="xphone" type="text" size=15 [(ngModel)]="user.phone" name="phone">
-    </div>
-    <div>
-        <label>Email</label>
-        <input id="xemail" type="text" size=50 [(ngModel)]="user.email" name="email">
-    </div>
-    <div>
-        <label>Reviewer</label>
-        <input id="xreviewer" type="checkbox" [(ngModel)]="user.isReviewer" name="reviewer">
-    </div>
-    <div>
-        <label>Admin</label>
-        <input id="xadmin" type="checkbox" [(ngModel)]="user.isAdmin" name="admin">
-    </div>
-    <div>
-        <button (click)= "save()" type="button" class="btn btn-primary">Save</button>
-    </div>
-</form>
+<main>
+    <form>
+        <table class="table table-sm">
+            <tbody>
+                <tr>
+                    <td class="headers">Id:</td>
+                    <td>
+                        <input id="xid" type="number" size=10 [(ngModel)]="user.id" name="userId" value=0 disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Username:</td>
+                    <td>
+                        <input id="xusername" type="text" size=30 [(ngModel)]="user.username" name="username">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Password:</td>
+                    <td>
+                        <input id="xpwd" type="password" size=30 [(ngModel)]="user.password" name="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Re-enter password:</td>
+                    <td>
+                        <input id="xpwd2" type="password" size=30 [(ngModel)]="password2" name="password2" (blur)="checkPswd()">
+                        <span style= "color: red">  {{warning}}  </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">First Name:</td>
+                    <td>
+                        <input id="xfname" type="text" size=30 [(ngModel)]="user.firstname" name="firstname">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Last Name:</td>
+                    <td>
+                        <input id="xlname" type="text" size=30 [(ngModel)]="user.lastname" name="lastname">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Phone:</td>
+                    <td>
+                        <input id="xphone" type="text" size=15 [(ngModel)]="user.phone" name="phone">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Email:</td>
+                    <td>
+                        <input id="xemail" type="text" size=50 [(ngModel)]="user.email" name="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Reviewer:</td>
+                    <td>
+                        <input id="xreviewer" type="checkbox" [(ngModel)]="user.isReviewer" name="reviewer">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Admin:</td>
+                    <td>
+                        <input id="xadmin" type="checkbox" [(ngModel)]="user.isAdmin" name="admin">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center" style="margin-top: 3px">
+            <button (click)= "save()" type="button" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</main>

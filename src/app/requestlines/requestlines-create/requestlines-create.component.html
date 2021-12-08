@@ -1,25 +1,37 @@
 <h4>Requestline Create</h4>
-<p>
+<p style="font-weight: 500;">
     <a routerLink= "/requests/lines/{{reqline.requestId}}">Back to Request Lines</a>
 </p>
 <br>
-<form>
-    <div>
-        <label>Id</label>
-        <input id="xid" type="number" size=10 [(ngModel)]="reqline.id" name="reqlineId" disabled>
-    </div>
-    <div>
-        <label for="xproducts">Product</label>
-        <select id="xproducts" name="products" [(ngModel)]="reqline.productId">
-            <option *ngFor="let prod of products" value={{prod.id}}>{{prod.name}}</option>
-        </select>
-    </div>
-    <div>
-        <label>Quantity</label>
-        <input id="xname" type="number" size=5 [(ngModel)]="reqline.quantity" name="quantity">
-    </div>
-    <div>
-        <button (click)= "save()" type="button" class="btn btn-primary">Save</button>
-    </div>
-</form>
+<main>
+    <form>
+        <table class="table table-sm" style="border: 1px solid black">
+            <tbody>
+                <tr>
+                    <td class="headers">Id:</td>
+                    <td>
+                        <input id="xid" type="number" size=10 [(ngModel)]="reqline.id" name="reqlineId" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers" for="xproducts">Product:</td>
+                    <td>
+                        <select id="xproducts" name="products" [(ngModel)]="reqline.productId">
+                            <option *ngFor="let prod of products" value={{prod.id}}>{{prod.name}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Quantity:</td>
+                    <td>
+                        <input id="xname" type="number" size=5 [(ngModel)]="reqline.quantity" name="quantity">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <button (click)= "save()" type="button" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</main>
 

@@ -1,13 +1,13 @@
 <body *ngIf="request">
     <h4>Request Lines</h4>
-    <a routerLink="/requests/list">Back to List</a>
+    <a routerLink="/requests/list" style="font-weight: 500;">Back to List</a>
     <br>
     <br>
     <h5>Request</h5>
     <br>
     <table class="table table-sm">
         <thead>
-            <tr>
+            <tr class="headers">
                 <th>Id</th>
                 <th>Description</th>
                 <th>Status</th>
@@ -32,10 +32,14 @@
     <br>
     <h5>Requestlines</h5>
     <br>
-    <a routerLink= "/requestlines/create/{{request.id}}">Create</a>
-    <table class="table table-sm">
+    <table class="table table-sm" style="width: 70%; border: 0;">
         <thead>
             <tr>
+                <td><a routerLink= "/requestlines/create/{{request.id}}" style="font-weight: 500;">Create</a></td>
+            </tr>
+        </thead>
+        <tbody style="border: 1px solid black">
+            <tr class="headers">
                 <th>Id</th>
                 <th>Product</th>
                 <th>Quantity</th>
@@ -43,8 +47,6 @@
                 <th>Subtotal</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
             <tr *ngFor="let rl of requestlines">
                 <td>{{rl.id}}</td>
                 <td>{{rl.product.name}}</td>

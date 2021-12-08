@@ -63,6 +63,7 @@ export class RequestReviewComponent implements OnInit {
         next: res => {
           console.debug("Request approved:", res);
           this.request = res;
+          this.warning = "";
           this.refresh();
         },
         error: err => {
