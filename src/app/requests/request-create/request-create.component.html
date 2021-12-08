@@ -1,43 +1,65 @@
 <h4>Request Create</h4>
-<p>
+<p style="font-weight: 500;">
     <a routerLink= "/requests/list">Back to List</a>
 </p>
 <br>
-<form>
-    <div>
-        <label>Id</label>
-        <input id="xid" type="number" [(ngModel)]="request.id" name="requestId" disabled>
-    </div>
-    <div>
-        <label>Description</label>
-        <input id="xdesc" type="text" size=70 [(ngModel)]="request.description" name="description">
-    </div>
-    <div>
-        <label>Justification</label>
-        <input id="xjust" type="text" size=100 [(ngModel)]="request.justification" name="justification">
-    </div>
-    <div>
-        <label>Rejection Reason</label>
-        <input id="xreject" type="text" size=100 [(ngModel)]="request.rejectionReason" name="rejection" disabled>
-    </div>
-    <div>
-        <label>Delivery Mode</label>
-        <input id="xdeliv" type="text" size=20 [(ngModel)]="request.deliveryMode" name="delivery">
-    </div>
-    <div>
-        <label>Status</label>
-        <input id="xstatus" type="text" size=10 [(ngModel)]="request.status" name="status" disabled>
-    </div>
-    <div>
-        <label>Total</label>
-        <input id="xtotal" type="number" size=15 [(ngModel)]="request.total" name="total" disabled>
-    </div>
-    <div>
-        <label>User</label>
-        <input id="xuser" type="text" size=20 [(ngModel)]="user.username" name="user" disabled>
-    </div>
-    <div>
-        <button (click)= "save()" type="button" class="btn btn-primary">Save</button>
-    </div>
-</form>
+<main>
+    <form>
+        <table class="table table-sm" style="border: 1px solid black">
+            <tbody>
+                <tr>
+                    <td class="headers">Id:</td>
+                    <td>
+                        <input id="xid" type="number" [(ngModel)]="request.id" name="requestId" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Description:</td>
+                    <td>
+                        <input id="xdesc" type="text" size=70 [(ngModel)]="request.description" name="description">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Justification:</td>
+                    <td>
+                        <input id="xjust" type="text" size=100 [(ngModel)]="request.justification" name="justification">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Rejection Reason:</td>
+                    <td>
+                        <input id="xreject" type="text" size=100 [(ngModel)]="request.rejectionReason" name="rejection" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Delivery Mode:</td>
+                    <td>
+                        <input id="xdeliv" type="text" size=20 [(ngModel)]="request.deliveryMode" name="delivery">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Status:</td>
+                    <td>
+                        <input id="xstatus" type="text" size=10 [(ngModel)]="request.status" name="status" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Total:</td>
+                    <td>
+                        <input id="xtotal" type="number" size=15 [(ngModel)]="request.total" name="total" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">User:</td>
+                    <td>
+                        <input id="xuser" type="text" size=20 [(ngModel)]="user.username" name="user" disabled>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <button (click)= "save()" type="button" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+</main>
 
