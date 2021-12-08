@@ -1,42 +1,62 @@
 <h4>Product Detail</h4>
-<p>
+<p style="font-weight: 500">
     <a routerLink= "/products/list">Back to List</a>
 </p>
 <br>
-<form *ngIf="product">
-    <div>
-        <label>Id</label>
-        <input id="xid" type="number" size=10 [(ngModel)]="product.id" name="productId" disabled>
-    </div>
-    <div>
-        <label>PartNbr</label>
-        <input id="xpartnbr" type="text" size=20 [(ngModel)]="product.partNbr" name="partNbr" disabled>
-    </div>
-    <div>
-        <label>Name</label>
-        <input id="xname" type="text" size=30 [(ngModel)]="product.name" name="name" disabled>
-    </div>
-    <div>
-        <label>Price</label>
-        <input id="xprice" type="number" size=10 [(ngModel)]="product.price" name="price" disabled>
-    </div>
-    <div>
-        <label>Unit</label>
-        <input id="xunit" type="text" size=15 [(ngModel)]="product.unit" name="unit" disabled>
-    </div>
-    <div>
-        <label>Photopath</label>
-        <input id="xphotopath" type="text" size=50 [(ngModel)]="product.photopath" name="photopath" disabled>
-    </div>
-    <div>
-        <label>Vendor</label>
-        <input id="xvendor" type="text" [(ngModel)]="product.vendor.name" name="vendor" disabled>
-    </div>
-    <div>
-        <a routerLink= "/products/edit/{{product.id}}">
-            <button type="button" class="btn btn-warning">Edit</button>
-        </a>
-        <span> | </span>
-        <button (click)= "delete(product.id)" type="button" class="btn btn-danger">Delete</button>
-    </div>
-</form>
+<main>
+    <form *ngIf="product">
+        <table class="table table-sm" style="border: 1px solid black">
+            <tbody>
+                <tr>
+                    <td class="headers">Id:</td>
+                    <td>
+                        <input id="xid" type="number" size=10 [(ngModel)]="product.id" name="productId" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">PartNbr:</td>
+                    <td>
+                        <input id="xpartnbr" type="text" size=20 [(ngModel)]="product.partNbr" name="partNbr" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Name:</td>
+                    <td>
+                        <input id="xname" type="text" size=30 [(ngModel)]="product.name" name="name" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Price:</td>
+                    <td>
+                        <input id="xprice" type="number" size=10 [(ngModel)]="product.price" name="price" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Unit:</td>
+                    <td>
+                        <input id="xunit" type="text" size=15 [(ngModel)]="product.unit" name="unit" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Photopath:</td>
+                    <td>
+                        <input id="xphotopath" type="text" size=50 [(ngModel)]="product.photopath" name="photopath" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headers">Vendor:</td>
+                    <td>
+                        <input id="xvendor" type="text" [(ngModel)]="product.vendor.name" name="vendor" disabled>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a routerLink= "/products/edit/{{product.id}}">
+                <button type="button" class="btn btn-warning">Edit</button>
+            </a>
+            <span> | </span>
+            <button (click)= "delete(product.id)" type="button" class="btn btn-danger">Delete</button>
+        </div>
+    </form>
+</main>
