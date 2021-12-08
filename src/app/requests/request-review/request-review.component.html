@@ -1,13 +1,13 @@
 <body *ngIf="request">
     <h4>Request Review</h4>
-    <a routerLink="/requests/reviews">Back to Review List</a>
+    <a routerLink="/requests/reviews" style="font-weight: 500;">Back to Review List</a>
     <br>
     <br>
     <h5>Request</h5>
     <br>
     <table class="table table-sm">
         <thead>
-            <tr>
+            <tr class="headers">
                 <th>Id</th>
                 <th>Description</th>
                 <th>Rejection Reason</th>
@@ -30,9 +30,9 @@
     <br>
     <h5>Requestlines</h5>
     <br>
-    <table class="table table-sm">
+    <table class="table table-sm" style="width: 70%">
         <thead>
-            <tr>
+            <tr class="headers">
                 <th>Id</th>
                 <th>Product</th>
                 <th>Quantity</th>
@@ -50,7 +50,7 @@
             </tr>
         </tbody>
     </table>
-    <div> 
+    <div class="text-center"> 
         <button (click)="reject()" type="button" class= "btn btn-danger">Reject</button>
             <span *ngIf="rejected === true">  |  
                 <input id="xreject" type="text" size=30 [(ngModel)]="request.rejectionReason" name="rejection">  |  
@@ -59,7 +59,7 @@
         <span>  |  </span>
         <button (click)= "approve(request)" type="button" class="btn btn-success">Approve</button>
     </div>
-    <div>
+    <div class="text-center">
         <h6 style= "color: red">  {{warning}}  </h6>
     </div>
 </body>
