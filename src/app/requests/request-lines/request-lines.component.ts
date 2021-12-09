@@ -17,6 +17,7 @@ export class RequestLinesComponent implements OnInit {
   requestId: number = 0;
   requestlines: Requestlines[] = [];
   requestlineId: number = 0;
+  styleStatus: string = "bold";
 
   constructor(
     private reqsvc: RequestService,
@@ -60,12 +61,18 @@ export class RequestLinesComponent implements OnInit {
         console.debug("Request:", res);
         this.request = res;
         this.requestlines = this.request.requestLines;
+        this.setStatusColor(this.request.status);
       },
       error: err => {
         console.error(err);
       }
     });
+  }
 
+  setStatusColor(status: string): void {
+    if(status === "REVIEW") {this.styleStatus = "text-warning bold"};
+    if(status === "APPROVED"){this.styleStatus = "text-success bold"};
+    if(status === "REJECTED"){this.styleStatus = "text-danger bold"};
   }
 
   ngOnInit(): void {
