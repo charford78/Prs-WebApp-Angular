@@ -18,6 +18,12 @@ export class RequestReviewComponent implements OnInit {
   rejected: boolean = false;
   warning: string = "";
 
+  statusStyles: any = {
+    REVIEW: "text-warning bold",
+    APPROVED: "text-success bold",
+    REJECTED: "text-danger bold",
+  }
+
   constructor(
     private reqsvc: RequestService,
     private syssvc: SystemService,
@@ -31,6 +37,7 @@ export class RequestReviewComponent implements OnInit {
       next: res => {
         console.debug("Request:", res);
         this.request = res;
+        this.request.statusStyle = this.statusStyles[this.request.status];
         this.requestlines = this.request.requestLines;
       },
       error: err => {
