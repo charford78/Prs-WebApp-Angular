@@ -21,7 +21,7 @@
                 <td>{{request.id}}</td>
                 <td>{{request.description}}</td>
                 <td style= "color: red">{{request.rejectionReason}}</td>
-                <td>{{request.status}}</td>
+                <td [ngClass]="request.statusStyle">{{request.status}}</td>
                 <td>{{request.total | currency}}</td>
                 <td>{{request.user.username}}</td>
             </tr>
