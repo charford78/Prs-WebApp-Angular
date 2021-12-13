@@ -26,11 +26,11 @@ export class RequestlinesService {
   }
 
   change(requestline: Requestlines, id: number): Observable<Requestlines> {
-    return this.httpsvc.put(`${this.baseurl}/${id}`, requestline) as Observable<Requestlines>;
+    return this.httpsvc.post(`${this.baseurl}/update/${id}`, requestline) as Observable<Requestlines>;
   }
 
   remove(id: number): Observable<Requestlines> {
-    return this.httpsvc.delete(`${this.baseurl}/${id}`) as Observable<Requestlines>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<Requestlines>;
   }
 
 }

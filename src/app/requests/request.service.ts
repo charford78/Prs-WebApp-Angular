@@ -29,11 +29,11 @@ export class RequestService {
   }
 
   change(request: Request, id: number): Observable<Request> {
-    return this.httpsvc.put(`${this.baseurl}/${id}`, request) as Observable<Request>;
+    return this.httpsvc.post(`${this.baseurl}/update/${id}`, request) as Observable<Request>;
   }
 
   remove(id: number): Observable<Request> {
-    return this.httpsvc.delete(`${this.baseurl}/${id}`) as Observable<Request>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<Request>;
   }
 
   getReqsinReview(id: number): Observable<Request[]> {
@@ -41,14 +41,14 @@ export class RequestService {
   }
 
   review(request: Request): Observable<Request> {
-    return this.httpsvc.put(`${this.baseurl}/review`, request) as Observable<Request>;
+    return this.httpsvc.post(`${this.baseurl}/review`, request) as Observable<Request>;
   }
 
   approve(request: Request): Observable<Request> {
-    return this.httpsvc.put(`${this.baseurl}/approve`, request) as Observable<Request>;
+    return this.httpsvc.post(`${this.baseurl}/approve`, request) as Observable<Request>;
   }
 
   reject(request: Request): Observable<Request> {
-    return this.httpsvc.put(`${this.baseurl}/reject`, request) as Observable<Request>;
+    return this.httpsvc.post(`${this.baseurl}/reject`, request) as Observable<Request>;
   }
 }

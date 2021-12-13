@@ -29,11 +29,11 @@ export class UserService {
   }
 
   change(user: User, id: number): Observable<User> {
-    return this.httpsvc.put(`${this.baseurl}/${id}`, user) as Observable<User>;
+    return this.httpsvc.post(`${this.baseurl}/update/${id}`, user) as Observable<User>;
   }
 
   remove(id: number): Observable<User> {
-    return this.httpsvc.delete(`${this.baseurl}/${id}`) as Observable<User>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<User>;
   }
 
   login(username: string, password: string): Observable<User> {

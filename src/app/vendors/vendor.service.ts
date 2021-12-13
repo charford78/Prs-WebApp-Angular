@@ -29,11 +29,11 @@ export class VendorService {
   }
 
   change(vendor: Vendor, id: number): Observable<Vendor> {
-    return this.httpsvc.put(`${this.baseurl}/${id}`, vendor) as Observable<Vendor>;
+    return this.httpsvc.post(`${this.baseurl}/update/${id}`, vendor) as Observable<Vendor>;
   }
 
   remove(id: number): Observable<Vendor> {
-    return this.httpsvc.delete(`${this.baseurl}/${id}`) as Observable<Vendor>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<Vendor>;
   }
 
 }

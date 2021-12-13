@@ -29,11 +29,11 @@ export class ProductService {
   }
 
   change(product: Product, id: number): Observable<Product> {
-    return this.httpsvc.put(`${this.baseurl}/${id}`, product) as Observable<Product>;
+    return this.httpsvc.post(`${this.baseurl}/update/${id}`, product) as Observable<Product>;
   }
 
   remove(id: number): Observable<Product> {
-    return this.httpsvc.delete(`${this.baseurl}/${id}`) as Observable<Product>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<Product>;
   }
  
 }
