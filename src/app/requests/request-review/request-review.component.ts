@@ -52,6 +52,9 @@ export class RequestReviewComponent implements OnInit {
         console.debug("Request approved:", res);
         this.request = res;
         this.rejected = false;
+        if(this.warning != null){
+          this.warning = "";
+        }
         this.refresh();
       },
       error: err => {
