@@ -22,20 +22,22 @@ export class VendorDetailComponent implements OnInit {
     private syssvc: SystemService
   ) { }
 
-  delete(vid: number): Vendor {
-    this.vendorId = vid;
+  delete(vid: number): void {
+    this.syssvc.checkIsAdmin();
 
-    this.vensvc.remove(this.vendorId).subscribe({
-      next: res => {
-        console.debug("Vendor removed:", res);
-        this.vendor = res;
-        this.router.navigateByUrl("/vendors/list");
-      },
-      error: err => {
-        console.error(err);
-      }
-    });
-    return this.vendor;
+    if(this.syssvc.loggedInUser.isAdmin === true){
+      this.vendorId = vid;
+      this.vensvc.remove(this.vendorId).subscribe({
+        next: res => {
+          console.debug("Vendor removed:", res);
+          this.vendor = res;
+          this.router.navigateByUrl("/vendors/list");
+        },
+        error: err => {
+          console.error(err);
+        }
+      });
+    }
   }
 
   ngOnInit(): void {

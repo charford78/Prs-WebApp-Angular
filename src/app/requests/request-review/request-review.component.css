@@ -1,0 +1,10 @@
+table {
+    border: 1px solid navy;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.headers {
+    background: navy;
+    color: gold;
+}

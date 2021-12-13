@@ -1,10 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 main {
     margin: 0 auto;
+    padding: 0;
     border: 5px solid navy;
     width: 70%;
 }
 
 input, select {
     border-radius: 6px;
+}
+
+.bold {
+    font-weight: bold;
 }

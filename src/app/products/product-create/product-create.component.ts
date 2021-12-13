@@ -40,6 +40,7 @@ export class ProductCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.syssvc.checkLogin();
+    this.syssvc.checkIsAdmin();
 
     this.vensvc.list().subscribe({
       next: res => {

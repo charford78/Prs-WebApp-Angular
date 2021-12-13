@@ -11,7 +11,9 @@ export class Request {
     total: number = 0;
     userId: number = 0;
     user!: User;
-    requestLines: Requestlines[] = [];
+    requestLines!: Requestlines[];
+
+    statusStyle!: string;
 
     constructor () {}
 }
