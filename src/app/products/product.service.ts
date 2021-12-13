@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SystemService } from '../misc/system.service';
 import { Product } from './product.class';
 
 @Injectable({
@@ -8,10 +9,11 @@ import { Product } from './product.class';
 })
 export class ProductService {
 
-  baseurl: string = "http://localhost:54800/api/products"
+  baseurl: string = `${this.syssvc.urlWinhost}/api/products`
 
   constructor(
-    private httpsvc: HttpClient
+    private httpsvc: HttpClient,
+    private syssvc: SystemService
   ) { }
 
   list(): Observable<Product[]> {
