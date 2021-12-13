@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 export class SystemService {
 
   loggedInUser: any = null;
+  urlLocal: string = "http://localhost:54800";
+  urlWinhost: string = "http://charford.w34.wh-2.com/prsdb"
 
   constructor(
     private router: Router
