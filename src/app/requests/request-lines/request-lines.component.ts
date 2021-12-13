@@ -17,7 +17,7 @@ export class RequestLinesComponent implements OnInit {
   requestId: number = 0;
   requestlines: Requestlines[] = [];
   requestlineId: number = 0;
-  styleStatus: string = "bold";
+  styleStatus: string = "text-primary bold";
 
   constructor(
     private reqsvc: RequestService,
