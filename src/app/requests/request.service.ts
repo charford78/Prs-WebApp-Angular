@@ -9,7 +9,7 @@ import { Request } from './request.class';
 })
 export class RequestService {
 
-  baseurl: string = `${this.syssvc.urlWinhost}/api/requests`;
+  baseurl: string = `${this.syssvc.urlLocal}/api/requests`;
 
   constructor(
     private httpsvc: HttpClient,

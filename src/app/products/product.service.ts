@@ -9,7 +9,7 @@ import { Product } from './product.class';
 })
 export class ProductService {
 
-  baseurl: string = `${this.syssvc.urlWinhost}/api/products`
+  baseurl: string = `${this.syssvc.urlLocal}/api/products`
 
   constructor(
     private httpsvc: HttpClient,
