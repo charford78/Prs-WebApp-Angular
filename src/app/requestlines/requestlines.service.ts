@@ -30,7 +30,7 @@ export class RequestlinesService {
   }
 
   remove(id: number): Observable<Requestlines> {
-    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<Requestlines>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`, null) as Observable<Requestlines>;
   }
 
 }

@@ -33,7 +33,7 @@ export class UserService {
   }
 
   remove(id: number): Observable<User> {
-    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<User>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`, null) as Observable<User>;
   }
 
   login(username: string, password: string): Observable<User> {

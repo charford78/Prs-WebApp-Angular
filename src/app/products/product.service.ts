@@ -33,7 +33,7 @@ export class ProductService {
   }
 
   remove(id: number): Observable<Product> {
-    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<Product>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`, null) as Observable<Product>;
   }
  
 }

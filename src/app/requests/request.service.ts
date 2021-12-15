@@ -33,7 +33,7 @@ export class RequestService {
   }
 
   remove(id: number): Observable<Request> {
-    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<Request>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`, null) as Observable<Request>;
   }
 
   getReqsinReview(id: number): Observable<Request[]> {

@@ -33,7 +33,7 @@ export class VendorService {
   }
 
   remove(id: number): Observable<Vendor> {
-    return this.httpsvc.post(`${this.baseurl}/delete/${id}`) as Observable<Vendor>;
+    return this.httpsvc.post(`${this.baseurl}/delete/${id}`, null) as Observable<Vendor>;
   }
 
 }
