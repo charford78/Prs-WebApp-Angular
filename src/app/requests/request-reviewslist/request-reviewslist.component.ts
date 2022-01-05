@@ -21,6 +21,7 @@ export class RequestReviewslistComponent implements OnInit {
 
   ngOnInit(): void {
     this.syssvc.checkLogin();
+    this.syssvc.checkIsReviewer();
 
     this.user = this.syssvc.loggedInUser;
 

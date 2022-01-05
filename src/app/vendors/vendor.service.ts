@@ -9,7 +9,7 @@ import { Vendor } from './vendor.class';
 })
 export class VendorService {
 
-  baseurl: string = `${this.syssvc.urlWinhost}/api/vendors`
+  baseurl: string = `${this.syssvc.urlLocal}/api/vendors`
 
   constructor(
     private httpsvc: HttpClient,

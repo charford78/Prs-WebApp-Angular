@@ -9,7 +9,7 @@ import { Requestlines } from './requestlines.class';
 })
 export class RequestlinesService {
 
-  baseurl: string = `${this.syssvc.urlWinhost}/api/requestlines`;
+  baseurl: string = `${this.syssvc.urlLocal}/api/requestlines`;
 
 
   constructor(

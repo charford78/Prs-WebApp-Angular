@@ -26,4 +26,11 @@ export class SystemService {
     }
   }
 
+  checkIsReviewer(): void {
+    if(this.loggedInUser.isReviewer === false) {
+      alert("Reviewer-level authorization required to view this page.  Returning to login.");
+      this.router.navigateByUrl("users/login");
+    }
+  }
+
 }

@@ -9,7 +9,7 @@ import { User } from './user.class';
 })
 export class UserService {
 
-  baseurl: string = `${this.syssvc.urlWinhost}/api/users`;
+  baseurl: string = `${this.syssvc.urlLocal}/api/users`;
 
   constructor(
     private httpsvc: HttpClient,
