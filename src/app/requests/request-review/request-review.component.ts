@@ -89,6 +89,7 @@ export class RequestReviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.syssvc.checkLogin();
+    this.syssvc.checkIsReviewer();
 
     this.refresh();
   }
