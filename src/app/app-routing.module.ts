@@ -24,6 +24,7 @@ import { VendorCreateComponent } from './vendors/vendor-create/vendor-create.com
 import { VendorDetailComponent } from './vendors/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './vendors/vendor-edit/vendor-edit.component';
 import { VendorListComponent } from './vendors/vendor-list/vendor-list.component';
+import { VendorPurchaseOrdersComponent } from './vendors/vendor-purchase-orders/vendor-purchase-orders.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "users/login", pathMatch: "full" },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: "vendors/details/:id", component: VendorDetailComponent},
   { path: "vendors/create", component: VendorCreateComponent},
   { path: "vendors/edit/:id", component: VendorEditComponent},
+  { path: "vendors/purchaseorders/:id", component: VendorPurchaseOrdersComponent},
   { path: "products/list", component: ProductListComponent},
   { path: "products/details/:id", component: ProductDetailComponent},
   { path: "products/create", component: ProductCreateComponent},
