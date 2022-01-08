@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SystemService } from '../misc/system.service';
+import { Purchaseorder } from './purchaseorder.class';
 import { Vendor } from './vendor.class';
 
 @Injectable({
@@ -34,6 +35,10 @@ export class VendorService {
 
   remove(id: number): Observable<Vendor> {
     return this.httpsvc.post(`${this.baseurl}/delete/${id}`, null) as Observable<Vendor>;
+  }
+
+  getPurchaseOrders(id: number): Observable<Purchaseorder> {
+    return this.httpsvc.get(`${this.baseurl}/order/${id}`) as Observable<Purchaseorder>;
   }
 
 }
