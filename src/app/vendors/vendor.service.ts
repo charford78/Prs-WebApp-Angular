@@ -37,7 +37,7 @@ export class VendorService {
     return this.httpsvc.delete(`${this.baseurl}/${id}`) as Observable<Vendor>;
   }
 
-  getPurchaseOrders(id: number): Observable<Purchaseorder> {
+  getPurchaseOrder(id: number): Observable<Purchaseorder> {
     return this.httpsvc.get(`${this.baseurl}/order/${id}`) as Observable<Purchaseorder>;
   }
 
