@@ -69,6 +69,10 @@
             </a>
             <span> | </span>
             <button (click)= "delete(vendor.id)" type="button" class="btn btn-danger">Delete</button>
+            <span> | </span>
+            <a routerLink= "/vendors/purchaseorders/{{vendor.id}}">
+                <button type="button" class="btn btn-primary">Orders</button>
+            </a>
         </div>
     </form>
 </main>
