@@ -1,0 +1,11 @@
+.headers {
+    font-weight: 500;
+    background: navy;
+    color: gold;
+    border-radius: 5px;
+    width: 150px;
+}
+
+main {
+    width: 30%;
+}
