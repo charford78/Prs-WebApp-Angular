@@ -1,4 +1,4 @@
-.headers {
+.headers1 {
     font-weight: 500;
     background: navy;
     color: gold;
@@ -6,6 +6,21 @@
     width: 150px;
 }
 
-main {
-    width: 30%;
+#vendor {
+    width: 35%;
+    border: 5px solid navy;
+    margin: 0 auto;
+}
+
+.headers2 {
+    font-weight: 500;
+    background: navy;
+    color: gold;
+    border-radius: 5px;
+}
+
+#polines {
+    border: 1px solid navy;
+    width: 80%;
+    margin: 0 auto;
 }
