@@ -6,45 +6,76 @@
     <a routerLink= "/vendors/details/{{pord.vendor.id}}">Vendor Details</a>
 </p>
 <br>
-<main>
-    <form *ngIf="pord">
-        <h5 class="text-center">Vendor</h5>
+    <form *ngIf="pord" id="vendor">
+        <h5 class="text-center" style="background: navy; color: silver; margin: 0">Vendor Info</h5>
         <table class="table table-sm" style= "border: 1px solid black; margin: 0;">
             <tbody>
                 <tr>
-                    <td class="headers">Name:</td>
+                    <td class="headers1">Name:</td>
                     <td class="text-center">{{pord.vendor.name}}</td>
                 </tr>
                 <tr>
-                    <td class="headers">Address:</td>
+                    <td class="headers1">Address:</td>
                     <td class="text-center">{{pord.vendor.address}}</td>
                 </tr>
                 <tr>
-                    <td class="headers">City:</td>
+                    <td class="headers1">City:</td>
                     <td class="text-center">{{pord.vendor.city}}</td>
                 </tr>
                 <tr>
-                    <td class="headers">State:</td>
+                    <td class="headers1">State:</td>
                     <td class="text-center">{{pord.vendor.state}}</td>
                 </tr>
                 <tr>
-                    <td class="headers">Zip:</td>
+                    <td class="headers1">Zip:</td>
                     <td class="text-center">{{pord.vendor.zip}}</td>
                 </tr>
                 <tr>
-                    <td class="headers">Phone:</td>
+                    <td class="headers1">Phone:</td>
                     <td class="text-center">{{pord.vendor.phone}}</td>
                 </tr>
                 <tr>
-                    <td class="headers">Email:</td>
+                    <td class="headers1">Email:</td>
                     <td class="text-center">{{pord.vendor.email}}</td>
                 </tr>
                 <br>
                 <tr>
-                    <td class="headers">Order Total:</td>
+                    <th class="h5 text-center" colspan="2" style="background: navy; color: silver">Order Info</th>
+                </tr>
+                <tr>
+                    <td class="headers1">Date/Time:</td>
+                    <td class="text-center">{{pord.date | date: 'long'}}</td>
+                </tr>
+                <tr>
+                    <td class="headers1">Order Total:</td>
                     <td class="text-center">{{pord.orderTotal | currency}}</td>
                 </tr>
             </tbody>
         </table>
     </form>
-</main>
+    <br>
+    <br>
+    <h5>Purchase Order Lines</h5>
+    <br>
+    <table class= "table table-sm" id="polines">
+        <thead>
+            <tr class="headers2">
+                <th>Product Name</th>
+                <th>Part Number</th>
+                <th>Price</th>
+                <th>Unit</th>
+                <th>Quantity</th>
+                <th>Line Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pol of pord.purchaseOrderLines">
+                <td>{{pol.product.name}}</td>
+                <td>{{pol.product.partNbr}}</td>
+                <td>{{pol.product.price}}</td>
+                <td>{{pol.product.unit}}</td>
+                <td>{{pol.quantity}}</td>
+                <td>{{pol.lineTotal | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
